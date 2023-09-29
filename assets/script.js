@@ -1,56 +1,49 @@
 let dateEl = document.querySelector("#date");
 let timeEl = document.querySelector("#time");
-let prevBlock = document.querySelector('.past')
+let prevBlock = document.querySelector(".past");
+let timeStatus = document.querySelector(".timeStatus");
 let today = dayjs();
+let date = $(dateEl).text(today.format("MMM D, YYYY"));
+let time = $(timeEl).text(today.format("h"));
 let times = [
-    {9: 9},
-    {10: 10},
-    {11: 11},
-    {12: 12},
-    {13: 1},
-    {14: 2},
-    {15: 3},
-    {16: 4},
-    {17: 5},
-   ];
+  { 9: 9 },
+  { 10: 10 },
+  { 11: 11 },
+  { 12: 12 },
+  { 13: 1 },
+  { 14: 2 },
+  { 15: 3 },
+  { 16: 4 },
+  { 17: 5 },
+];
 
- if ($(dateEl).text(today.format("MMM D, YYYY")))
+if (time < 9) {
+  console.log("hello");
+}
 
-   
+$(".timeStatus").each(function () {
+  console.log(typeof $(this).attr("id"));
+  if (parseInt($(this).attr("id")) < parseInt(today.format("H"))) {
+    $(this).addClass("past");
+  } else if (parseInt($(this).attr("id")) === parseInt(today.format("H"))) {
+    $(this).addClass("present");
+  } else {
+    $(this).addClass("future");
+  }
+});
 
+console.log(today.format("H"));
+console.log(typeof today.format("h"));
 
 main();
 // Defines main function of the page
 function main() {
-  setDateTime();
+  if ($(timeEl).text(today.format("h")) < 9) {
+    console.log("hello");
+  }
 }
 
 // Encompasses below code into one date and time function
-function setDateTime() {
-  // Sets the date and the time formattes as wanted
-  function updateTime() {
-    
-    let date = $(dateEl).text(today.format("MMM D, YYYY"));
-    let time = $(timeEl).text(today.format("h:mm:ss a"));
-
-  } let timeL = 14;
-  for (let i = 0; i < times.length; i++) {
-      // Get the value (time) from the object
-      let timeValue = Object.values(times[i])[0];
-
-  }
-
-  // Calls update time
-  updateTime();
-  // Sets seconds ++ for the current time
-  setInterval(updateTime, 1000);
-}
-
-console.log(date.text);
-
-
-
-
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements

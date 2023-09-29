@@ -13,8 +13,6 @@ header {
   border-radius: 10%;
 }
 
-
-
 .containerH {
   font-size: 25px;
   width: 200px;
@@ -33,7 +31,11 @@ header {
   align-items: center;
   max-width: 18vh;
   max-height: 16vh;
-  background: linear-gradient(45deg, rgba(8, 0, 31, 0.5), rgba(48, 25, 125, 0.6));
+  background: linear-gradient(
+    45deg,
+    rgba(8, 0, 31, 0.5),
+    rgba(48, 25, 125, 0.6)
+  );
   color: #fff;
   border-radius: 30%;
 }
@@ -78,6 +80,11 @@ textarea {
 .future {
   background-color: #77dd77;
   color: white;
+}
+
+.timeStatus {
+  display: flex;
+  align-items: center;
 }
 
 .saveBtn {
