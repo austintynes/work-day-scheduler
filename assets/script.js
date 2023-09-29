@@ -14,6 +14,12 @@ let time = $(timeEl).text(today.format("h"));
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   let saveButton = document.querySelector(".saveBtn");
+  let textInput = document.querySelector("textarea");
+  saveButton.addEventListener("click", function (event) {
+    let userInput = textInput.value;
+    localStorage.setItem("savedTask", userInput);
+    console.log("Saved:" + userInput);
+  });
 
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
